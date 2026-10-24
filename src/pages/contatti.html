@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block titolo %}Contatti | rilegaretesi{% endblock %}
+{% block descrizione %}Scrivi o chiama rilegaretesi, il servizio di stampa e rilegatura tesi di Volta la carta a Ferrara.{% endblock %}
+{% block contenuto %}
+<article class="testo">
+  <h1>Contatti</h1>
+  <p class="apertura__sotto">Per dubbi su file, tempi o preventivi oltre {{ (dati.stampa|last).a }} facciate, scrivici o chiamaci.</p>
+  <h2>Email</h2>
+  <p><a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a></p>
+  <h2>Telefono</h2>
+  <p><a href="tel:+390532208932">0532 208932</a></p>
+  <h2>Indirizzo</h2>
+  <p>Volta la carta<br>Via Voltapaletto 25, Ferrara</p>
+</article>
+{% endblock %}

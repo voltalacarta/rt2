@@ -1,0 +1,933 @@
+{
+ "fonte": "Registro VLC, copia del 24/10/2026",
+ "finiture": [
+  {
+   "nome": "Opaco",
+   "prezzo": 29
+  },
+  {
+   "nome": "Lucido",
+   "prezzo": 29
+  },
+  {
+   "nome": "Marmorizzato",
+   "prezzo": 29
+  },
+  {
+   "nome": "Nuvolato",
+   "prezzo": 29
+  },
+  {
+   "nome": "Venato",
+   "prezzo": 29
+  },
+  {
+   "nome": "Brillante",
+   "prezzo": 29
+  },
+  {
+   "nome": "Effetto pelle",
+   "prezzo": 39
+  },
+  {
+   "nome": "Effetto pelle liscio",
+   "prezzo": 39
+  },
+  {
+   "nome": "Metallizzato",
+   "prezzo": 39
+  },
+  {
+   "nome": "Telato",
+   "prezzo": 39
+  }
+ ],
+ "famiglie": [
+  "Bianco e avorio",
+  "Beige e marrone",
+  "Giallo e oro",
+  "Arancio e rosso",
+  "Rosa e viola",
+  "Verde",
+  "Azzurro e blu",
+  "Grigio e argento",
+  "Nero"
+ ],
+ "copertine": [
+  {
+   "codice": "CP-001",
+   "nome": "Opaco Bianco",
+   "finitura": "Opaco",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/opaco-bianco-150x150.jpg",
+   "colore": "#F4F3EE",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-002",
+   "nome": "Effetto Pelle Liscio Bianco",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-liscio-bianco-150x150.jpg",
+   "colore": "#F1EFE9",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-003",
+   "nome": "Lucido Bianco Luna",
+   "finitura": "Lucido",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/lucido-bianco-luna-150x150.jpg",
+   "colore": "#ECEEF0",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-004",
+   "nome": "Lucido Bianco",
+   "finitura": "Lucido",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/lucido-bianco-150x150.jpg",
+   "colore": "#F7F7F5",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-005",
+   "nome": "Marmorizzato Panna",
+   "finitura": "Marmorizzato",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/marmorizzato-panna-150x150.jpg",
+   "colore": "#EDE5D3",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-006",
+   "nome": "Effetto Pelle Bianco",
+   "finitura": "Effetto pelle",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-bianco-150x150.jpg",
+   "colore": "#EFEDE6",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-007",
+   "nome": "Metallizzato Avorio",
+   "finitura": "Metallizzato",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/metallizzato-avorio-150x150.jpg",
+   "colore": "#E6DCC4",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-008",
+   "nome": "Marmorizzato Avorio",
+   "finitura": "Marmorizzato",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/metallizzato-avorio-150x150.jpg",
+   "colore": "#E8DFC8",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-009",
+   "nome": "Brillante Panna",
+   "finitura": "Brillante",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/lucido-avorio-brillantini-150x150.jpg",
+   "colore": "#EFE6D2",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-010",
+   "nome": "Lucido Avorio",
+   "finitura": "Lucido",
+   "famiglia": "Bianco e avorio",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/lucido-avorio-150x150.jpg",
+   "colore": "#EDE3CC",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-011",
+   "nome": "Metallizzato Cappuccino",
+   "finitura": "Metallizzato",
+   "famiglia": "Beige e marrone",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/metallizzato-cappuccino-150x150.jpg",
+   "colore": "#B89C80",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-012",
+   "nome": "Marmorizzato Sabbia",
+   "finitura": "Marmorizzato",
+   "famiglia": "Beige e marrone",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/marmorizzato-sabbia-150x150.jpg",
+   "colore": "#D6C4A3",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-013",
+   "nome": "Effetto Pelle Nocciola",
+   "finitura": "Effetto pelle",
+   "famiglia": "Beige e marrone",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-nocciola-150x150.jpg",
+   "colore": "#9A6E48",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-014",
+   "nome": "Marmorizzato Marrone",
+   "finitura": "Marmorizzato",
+   "famiglia": "Beige e marrone",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/marmorizzato-marrone-150x150.jpg",
+   "colore": "#6B4A32",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-015",
+   "nome": "Metallizzato Marrone",
+   "finitura": "Metallizzato",
+   "famiglia": "Beige e marrone",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-marrone-150x150.jpg",
+   "colore": "#5E4130",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-016",
+   "nome": "Effetto Pelle Marrone",
+   "finitura": "Effetto pelle",
+   "famiglia": "Beige e marrone",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-marrone-150x150.jpg",
+   "colore": "#56392A",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-017",
+   "nome": "Metallizzato Oro",
+   "finitura": "Metallizzato",
+   "famiglia": "Giallo e oro",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-oro-150x150.jpg",
+   "colore": "#C4A052",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-018",
+   "nome": "Lucido Giallo",
+   "finitura": "Lucido",
+   "famiglia": "Giallo e oro",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-giallo-150x150.jpg",
+   "colore": "#EDC531",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-019",
+   "nome": "Nuvolato Giallo",
+   "finitura": "Nuvolato",
+   "famiglia": "Giallo e oro",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/nuvolato-giallo-150x150.jpg",
+   "colore": "#E3BE3C",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-020",
+   "nome": "Opaco Arancio",
+   "finitura": "Opaco",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/03/arancione-150x150.jpg",
+   "colore": "#E0732C",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-021",
+   "nome": "Opaco Rosso Vivo",
+   "finitura": "Opaco",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-rosso-vivo-150x150.jpg",
+   "colore": "#C8202A",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-022",
+   "nome": "Lucido Rosso",
+   "finitura": "Lucido",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-rosso-150x150.jpg",
+   "colore": "#B51E28",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-023",
+   "nome": "Metallizzato Bordeaux",
+   "finitura": "Metallizzato",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-rosso-150x150.jpg",
+   "colore": "#7A1F2B",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-024",
+   "nome": "Nuvolato Rosso",
+   "finitura": "Nuvolato",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/nuvolato-rosso-150x150.jpg",
+   "colore": "#A8232C",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-025",
+   "nome": "Effetto Pelle Liscio Rosso",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-liscio-rosso-150x150.jpg",
+   "colore": "#A61D27",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-026",
+   "nome": "Telato Rosso",
+   "finitura": "Telato",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/telato-rosso-150x150.jpg",
+   "colore": "#9E2229",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-027",
+   "nome": "Opaco Rosso",
+   "finitura": "Opaco",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-rosso-150x150.jpg",
+   "colore": "#A8222B",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-028",
+   "nome": "Marmorizzato Rosso",
+   "finitura": "Marmorizzato",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/marmorizzato-rosso-150x150.jpg",
+   "colore": "#9A2630",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-029",
+   "nome": "Effetto Pelle Rosso",
+   "finitura": "Effetto pelle",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-rosso-150x150.jpg",
+   "colore": "#962029",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-030",
+   "nome": "Lucido Bordeaux",
+   "finitura": "Lucido",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-bordeaux-150x150.jpg",
+   "colore": "#6E1A26",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-031",
+   "nome": "Venato Bordeaux",
+   "finitura": "Venato",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/venato-bordeaux-150x150.jpg",
+   "colore": "#6A1E28",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-032",
+   "nome": "Marmorizzato Bordeaux",
+   "finitura": "Marmorizzato",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/marmorizzato-bordeaux-150x150.jpg",
+   "colore": "#6C2129",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-033",
+   "nome": "Effetto Pelle Bordeaux",
+   "finitura": "Effetto pelle",
+   "famiglia": "Arancio e rosso",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-bordeaux-150x150.jpg",
+   "colore": "#631B24",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-034",
+   "nome": "Opaco Rosa Cipria",
+   "finitura": "Opaco",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-rosa-cipria-150x150.jpg",
+   "colore": "#E7C3BE",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-035",
+   "nome": "Metallizzato Lilla",
+   "finitura": "Metallizzato",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-lilla-150x150.jpg",
+   "colore": "#B9A2C4",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-036",
+   "nome": "Metallizzato Rosa Antico",
+   "finitura": "Metallizzato",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-rosa-antico-150x150.jpg",
+   "colore": "#C59A98",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-037",
+   "nome": "Effetto Pelle Rosa",
+   "finitura": "Effetto pelle",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-rosa-150x150.jpg",
+   "colore": "#E6A8B8",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-038",
+   "nome": "Effetto Pelle Liscio Rosa",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-liscio-rosa-150x150.jpg",
+   "colore": "#E9B2C0",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-039",
+   "nome": "Metallizzato Fucsia",
+   "finitura": "Metallizzato",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-fucsia-150x150.jpg",
+   "colore": "#B42F72",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-040",
+   "nome": "Telato Rosa",
+   "finitura": "Telato",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/telato-rosa-150x150.jpg",
+   "colore": "#E2A7B5",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-041",
+   "nome": "Opaco Rosa Confetto",
+   "finitura": "Opaco",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-rosa-confetto-150x150.jpg",
+   "colore": "#F2C6D2",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-042",
+   "nome": "Effetto Pelle Liscio Fucsia",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-liscio-fucsia-150x150.jpg",
+   "colore": "#C02A74",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-043",
+   "nome": "Opaco Lilla",
+   "finitura": "Opaco",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-lilla-150x150.jpg",
+   "colore": "#C2AED2",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-044",
+   "nome": "Lucido Viola",
+   "finitura": "Lucido",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-viola-viola-150x150.jpg",
+   "colore": "#5B2D7E",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-045",
+   "nome": "Lucido Fucsia",
+   "finitura": "Lucido",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-fucsia-150x150.jpg",
+   "colore": "#C8287A",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-046",
+   "nome": "Opaco Fucsia",
+   "finitura": "Opaco",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-fucsia-150x150.jpg",
+   "colore": "#C33479",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-047",
+   "nome": "Telato Fucsia",
+   "finitura": "Telato",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/telato-fucsia-150x150.jpg",
+   "colore": "#B52F70",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-048",
+   "nome": "Opaco Viola",
+   "finitura": "Opaco",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-viola-150x150.jpg",
+   "colore": "#5E3482",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-049",
+   "nome": "Brillante Vinaccia",
+   "finitura": "Brillante",
+   "famiglia": "Rosa e viola",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/brillante-vinaccia-150x150.jpg",
+   "colore": "#5A1F35",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-050",
+   "nome": "Effetto Pelle Liscio Verde Acqua",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelleliscio-verde-acqua-150x150.jpg",
+   "colore": "#7CC6B8",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-051",
+   "nome": "Marmorizzato Verde",
+   "finitura": "Marmorizzato",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/marmorizzato-verde-150x150.jpg",
+   "colore": "#3E6B4C",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-052",
+   "nome": "Nuvolato Verde",
+   "finitura": "Nuvolato",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/nuvolato-verde-150x150.jpg",
+   "colore": "#4C7A52",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-053",
+   "nome": "Opaco Verde Pisello",
+   "finitura": "Opaco",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-verde-pisello-150x150.jpg",
+   "colore": "#8DB04A",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-054",
+   "nome": "Opaco Verde Prato",
+   "finitura": "Opaco",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-verde-prato-150x150.jpg",
+   "colore": "#3E8E3E",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-055",
+   "nome": "Effetto Pelle Liscio Turchese",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelleliscio-turchese-150x150.jpg",
+   "colore": "#2AA3A6",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-056",
+   "nome": "Opaco Verde Bottiglia",
+   "finitura": "Opaco",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-verde-bottiglia-150x150.jpg",
+   "colore": "#1F4A35",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-057",
+   "nome": "Nuvolato Ottanio",
+   "finitura": "Nuvolato",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/nuvolato-ottanio-150x150.jpg",
+   "colore": "#1F5C66",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-058",
+   "nome": "Metallizzato Verde",
+   "finitura": "Metallizzato",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-verde-150x150.jpg",
+   "colore": "#2F5E45",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-059",
+   "nome": "Effetto Pelle Verde",
+   "finitura": "Effetto pelle",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-verde-150x150.jpg",
+   "colore": "#2C5A3E",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-060",
+   "nome": "Venato Verde",
+   "finitura": "Venato",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/venato-verde-150x150.jpg",
+   "colore": "#2E5640",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-061",
+   "nome": "Opaco Verde Scuro",
+   "finitura": "Opaco",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-verde-scuro-150x150.jpg",
+   "colore": "#22402F",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-062",
+   "nome": "Lucido Verde",
+   "finitura": "Lucido",
+   "famiglia": "Verde",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-verde-150x150.jpg",
+   "colore": "#246B45",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-063",
+   "nome": "Metallizzato Azzurro",
+   "finitura": "Metallizzato",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/metallizzato-azzurro-150x150.jpg",
+   "colore": "#7FA6CC",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-064",
+   "nome": "Effetto Pelle Liscio Azzurro Chiaro",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-liscio-azzurro-150x150.jpg",
+   "colore": "#A9CBE6",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-065",
+   "nome": "Effetto Pelle Azzurro",
+   "finitura": "Effetto pelle",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-azzurro-150x150.jpg",
+   "colore": "#7FAED6",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-066",
+   "nome": "Opaco Carta da Zucchero",
+   "finitura": "Opaco",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/opaco-carta-da-zucchero-150x150.jpg",
+   "colore": "#8FA9C4",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-067",
+   "nome": "Opaco Azzurro",
+   "finitura": "Opaco",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/opaco-azzurro-150x150.jpg",
+   "colore": "#7DB3E0",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-068",
+   "nome": "Nuvolato Azzurro",
+   "finitura": "Nuvolato",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/nuvolato-azzurro-150x150.jpg",
+   "colore": "#6E9CC8",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-069",
+   "nome": "Metallizzato Blu",
+   "finitura": "Metallizzato",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/metallizzato-blu-min-150x150.jpg",
+   "colore": "#243E6E",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-070",
+   "nome": "Telato Blu",
+   "finitura": "Telato",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/telato-blu-min-150x150.jpg",
+   "colore": "#22396A",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-071",
+   "nome": "Effetto Pelle Liscio Blu",
+   "finitura": "Effetto pelle liscio",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-liscio-blu-150x150.jpg",
+   "colore": "#1F3768",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-072",
+   "nome": "Opaco Blu Scuro",
+   "finitura": "Opaco",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/opaco-blu-scuro-min-150x150.jpg",
+   "colore": "#1A2A4C",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-073",
+   "nome": "Opaco Blu Cobalto",
+   "finitura": "Opaco",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/opaco-blu-min-150x150.jpg",
+   "colore": "#1F45A0",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-074",
+   "nome": "Lucido Blu",
+   "finitura": "Lucido",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/lucido-blu-min-150x150.jpg",
+   "colore": "#1C3474",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-075",
+   "nome": "Marmorizzato Blu",
+   "finitura": "Marmorizzato",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/marmorizzato-blu-min-150x150.jpg",
+   "colore": "#24406E",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-076",
+   "nome": "Brillante Blu",
+   "finitura": "Brillante",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/brillante-blu-150x150.jpg",
+   "colore": "#213C78",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-077",
+   "nome": "Effetto Pelle Blu Chiaro",
+   "finitura": "Effetto pelle",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-blu-chiaro-150x150.jpg",
+   "colore": "#3F68A8",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-078",
+   "nome": "Effetto Pelle Blu Scuro",
+   "finitura": "Effetto pelle",
+   "famiglia": "Azzurro e blu",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/05/effetto-pelle-blu-scuro-150x150.jpg",
+   "colore": "#1B2B50",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-079",
+   "nome": "Metallizzato Argento",
+   "finitura": "Metallizzato",
+   "famiglia": "Grigio e argento",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/04/argento-150x150.jpg",
+   "colore": "#B8BCC2",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-080",
+   "nome": "Telato Grigio",
+   "finitura": "Telato",
+   "famiglia": "Grigio e argento",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/telato-grigio-1-150x150.jpg",
+   "colore": "#8A8D90",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-081",
+   "nome": "Opaco Grigio Chiaro",
+   "finitura": "Opaco",
+   "famiglia": "Grigio e argento",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-grigio-chiaro-1-150x150.jpg",
+   "colore": "#C4C6C6",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-082",
+   "nome": "Effetto Pelle Grigio",
+   "finitura": "Effetto pelle",
+   "famiglia": "Grigio e argento",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-grigio-1-150x150.jpg",
+   "colore": "#7E8285",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-083",
+   "nome": "Nuvolato Grigio",
+   "finitura": "Nuvolato",
+   "famiglia": "Grigio e argento",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/nuvolato-grigio-1-150x150.jpg",
+   "colore": "#8E9295",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-084",
+   "nome": "Opaco Nero",
+   "finitura": "Opaco",
+   "famiglia": "Nero",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/opaco-nero-1-150x150.jpg",
+   "colore": "#1D1D1F",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-085",
+   "nome": "Lucido Nero",
+   "finitura": "Lucido",
+   "famiglia": "Nero",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/lucido-nero-1-150x150.jpg",
+   "colore": "#161618",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-086",
+   "nome": "Metallizzato Nero",
+   "finitura": "Metallizzato",
+   "famiglia": "Nero",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/metallizzato-nero-1-150x150.jpg",
+   "colore": "#232326",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-087",
+   "nome": "Nuvolato Nero",
+   "finitura": "Nuvolato",
+   "famiglia": "Nero",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/nuvolato-nero-1-150x150.jpg",
+   "colore": "#1E1F21",
+   "disponibile": true
+  },
+  {
+   "codice": "CP-088",
+   "nome": "Effetto Pelle Nero",
+   "finitura": "Effetto pelle",
+   "famiglia": "Nero",
+   "foto": "https://rilegaretesi.it/wp-content/uploads/2025/06/effetto-pelle-nero-1-150x150.jpg",
+   "colore": "#1A1A1C",
+   "disponibile": true
+  }
+ ],
+ "stampa": [
+  {
+   "da": 1,
+   "a": 30,
+   "prezzo": 4
+  },
+  {
+   "da": 31,
+   "a": 80,
+   "prezzo": 7
+  },
+  {
+   "da": 81,
+   "a": 130,
+   "prezzo": 9
+  },
+  {
+   "da": 131,
+   "a": 200,
+   "prezzo": 15
+  },
+  {
+   "da": 201,
+   "a": 250,
+   "prezzo": 19
+  },
+  {
+   "da": 251,
+   "a": 300,
+   "prezzo": 25
+  },
+  {
+   "da": 301,
+   "a": 400,
+   "prezzo": 35
+  },
+  {
+   "da": 401,
+   "a": 500,
+   "prezzo": 45
+  }
+ ],
+ "colori_testo": [
+  {
+   "nome": "Oro",
+   "colore": "#C9A24A"
+  },
+  {
+   "nome": "Oro rosa",
+   "colore": "#D9A592"
+  },
+  {
+   "nome": "Argento",
+   "colore": "#C8CCD2"
+  },
+  {
+   "nome": "Bronzo",
+   "colore": "#A8743F"
+  }
+ ],
+ "decoro": {
+  "prezzo": 3
+ },
+ "spedizione": {
+  "prezzo": 9
+ },
+ "tipologie": [
+  {
+   "id": "rigida",
+   "nome": "Artigianale rigida",
+   "attiva": true
+  },
+  {
+   "id": "leggera",
+   "nome": "Leggera",
+   "attiva": false
+  },
+  {
+   "id": "floreale",
+   "nome": "Artigianale rigida floreale",
+   "attiva": false
+  }
+ ]
+}

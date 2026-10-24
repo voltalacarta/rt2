@@ -34,3 +34,14 @@ Nuovo sito di vendita online delle tesi rilegate di Volta la carta.
 ## Staging
 
 Il sito in lavorazione è pubblicato su GitHub Pages: <https://voltalacarta.github.io/rt2/>. Il sito attuale rilegaretesi.it non viene toccato.
+
+## Il sito
+
+| Cosa | Dove |
+| --- | --- |
+| Pagine | `src/pages/*.html` (modelli Jinja) |
+| Parti comuni (testata, piede, copertina) | `src/templates/` |
+| Catalogo e prezzi | `src/data/catalogo.json`, copia del Registro VLC |
+| Stile e script | `src/assets/` |
+
+Per provarlo in locale: `pip install jinja2`, poi `python3 strumenti/build.py` e apri `dist/index.html`. La pubblicazione su GitHub Pages parte da sola a ogni push su `main`.

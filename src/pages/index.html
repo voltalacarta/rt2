@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% from "copertina.html" import copertina %}
+{% set cop = dati.copertine | selectattr("codice", "equalto", "CP-030") | first %}
+{% set scelte = ["CP-030", "CP-073", "CP-072", "CP-056", "CP-001", "CP-084", "CP-034", "CP-017"] %}
+{% block titolo %}Tesi di laurea rilegate a mano, spedite in tutta Italia | rilegaretesi{% endblock %}
+{% block descrizione %}Stampa e rilegatura artigianale della tesi di laurea a Ferrara. Scegli tra {{ dati.copertine|length }} copertine, carica il PDF e ricevi la tesi in 2-4 giorni lavorativi.{% endblock %}
+
+{% block contenuto %}
+<section class="apertura">
+  <div class="apertura__testo">
+    <h1>La tua tesi, rilegata a mano a Ferrara.</h1>
+    <p class="apertura__sotto">Scegli copertina e colore della scritta, carica il PDF. Stampiamo e rileghiamo in bottega, poi la spediamo a casa tua in 2-4 giorni lavorativi.</p>
+    <div class="apertura__azioni">
+      <a class="bottone" href="configura.html">Configura la tesi</a>
+      <a class="collegamento" href="#prezzi">Vedi i prezzi</a>
+    </div>
+    <ul class="apertura__fatti">
+      <li>Copertine da {{ dati.prezzo_min|euro }}</li>
+      <li>Stampa a colori allo stesso prezzo del bianco e nero</li>
+      <li>Oltre 25 anni di legatoria</li>
+    </ul>
+  </div>
+
+  <div class="apertura__libro">
+    {{ copertina(cop, id="libro-home", grande=true) }}
+    <div class="campioni" role="radiogroup" aria-label="Prova una copertina">
+      {% for codice in scelte %}
+        {% set c = dati.copertine | selectattr("codice", "equalto", codice) | first %}
+        <button type="button" class="campione" role="radio" aria-checked="{{ 'true' if codice == cop.codice else 'false' }}"
+          data-codice="{{ c.codice }}" data-nome="{{ c.nome }}" data-colore="{{ c.colore }}" data-finitura="{{ c.finitura|lower|replace(' ', '-') }}" data-prezzo="{{ c.prezzo|euro }}"
+          style="--cop: {{ c.colore }}" aria-label="{{ c.nome }}"></button>
+      {% endfor %}
+    </div>
+    <a class="collegamento collegamento--piccolo" id="vai-configura" href="configura.html?copertina={{ cop.codice }}">Tutte le {{ dati.copertine|length }} copertine</a>
+  </div>
+</section>
+
+<section class="sezione" id="come-funziona">
+  <h2>Come funziona</h2>
+  <ol class="passi">
+    <li>
+      <h3>Scegli la copertina</h3>
+      <p>{{ dati.copertine|length }} colori in {{ dati.finiture|length }} finiture, dall'opaco all'effetto pelle. Scegli anche il colore della scritta: oro, oro rosa, argento o bronzo.</p>
+    </li>
+    <li>
+      <h3>Carica il PDF</h3>
+      <p>Un solo file, frontespizio compreso. La scritta in copertina la prendiamo dal tuo frontespizio.</p>
+    </li>
+    <li>
+      <h3>Stampiamo e rilegiamo</h3>
+      <p>In 24-48 ore lavorative. Gli ordini arrivati dopo le 12 partono dal giorno lavorativo successivo.</p>
+    </li>
+    <li>
+      <h3>La ricevi a casa</h3>
+      <p>Il corriere consegna in 24-48 ore lavorative e ti mandiamo il codice per seguire il pacco.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="sezione sezione--bottega">
+  <div class="bottega">
+    <div class="bottega__testo">
+      <h2>Una legatoria vera, in via Voltapaletto</h2>
+      <p>Dietro rilegaretesi c'è Volta la carta, casa editrice e legatoria di Ferrara. In oltre 25 anni di lavoro abbiamo realizzato anche rilegature per Papa Francesco e per il Presidente Sergio Mattarella.</p>
+      <p>Ogni tesi passa dalle nostre mani: stampiamo su carta Navigator da 80 g, rileghiamo con materiali scelti e, se vuoi, completamente plastic free.</p>
+      <a class="collegamento" href="chi-siamo.html">La nostra storia</a>
+    </div>
+    <div class="bottega__foto" role="img" aria-label="Spazio per una foto del laboratorio">
+      {% if staging %}<p>Qui andrà una foto del laboratorio</p>{% endif %}
+    </div>
+  </div>
+</section>
+
+<section class="sezione" id="prezzi">
+  <h2>Prezzi chiari, senza sorprese</h2>
+  <p class="sezione__intro">Il prezzo di una copia è copertina più stampa. Il colore costa come il bianco e nero.</p>
+  <div class="prezzi">
+    <div class="prezzi__blocco">
+      <h3>Copertina rigida</h3>
+      <table class="tabella">
+        <tbody>
+        {% for prezzo, gruppo in dati.finiture | groupby("prezzo") %}
+          <tr><th scope="row">{{ gruppo | map(attribute="nome") | join(", ") }}</th><td>{{ prezzo|euro }}</td></tr>
+        {% endfor %}
+          <tr><th scope="row">Decoro in oro, oro rosa, argento o bronzo</th><td>+ {{ dati.decoro.prezzo|euro }}</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prezzi__blocco">
+      <h3>Stampa, per copia</h3>
+      <table class="tabella">
+        <tbody>
+        {% for s in dati.stampa %}
+          <tr><th scope="row">{{ s.da }}-{{ s.a }} facciate</th><td>{{ s.prezzo|euro }}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  {% set es_stampa = dati.stampa | selectattr("da", "le", 120) | selectattr("a", "ge", 120) | first %}
+  <p class="esempio">Esempio: una copia in {{ cop.nome }} con 120 facciate costa {{ cop.prezzo|euro }} + {{ es_stampa.prezzo|euro }} = {{ (cop.prezzo + es_stampa.prezzo)|euro }}. La spedizione in tutta Italia è {{ dati.spedizione.prezzo|euro }} a ordine.</p>
+</section>
+
+<section class="sezione">
+  <h2>Domande che ci fanno spesso</h2>
+  <div class="domande">
+    <details>
+      <summary>Quanto ci mette ad arrivare?</summary>
+      <p>Da 2 a 4 giorni lavorativi in tutto: 24-48 ore per stampa e rilegatura, 24-48 ore per la spedizione. Non consegniamo sabato, domenica e festivi.</p>
+    </details>
+    <details>
+      <summary>Il mio frontespizio va bene per la copertina?</summary>
+      <p>Usiamo la prima pagina del tuo PDF. Se serve, sistemiamo noi spaziature e impaginazione della scritta in copertina; l'interno resta come l'hai inviato.</p>
+    </details>
+    <details>
+      <summary>Posso modificare l'ordine dopo averlo inviato?</summary>
+      <p>Il file entra subito in stampa, quindi controllalo bene prima di caricarlo. Per qualsiasi dubbio scrivici a <a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a>.</p>
+    </details>
+    <details>
+      <summary>Come posso pagare?</summary>
+      <p>Con carta di credito o di debito. Il prezzo che vedi è quello che paghi.</p>
+    </details>
+  </div>
+  <a class="collegamento" href="domande.html">Tutte le domande</a>
+</section>
+
+<section class="chiusura">
+  <h2>La tesi è finita. Al resto pensiamo noi.</h2>
+  <a class="bottone bottone--chiaro" href="configura.html">Configura la tesi</a>
+</section>
+{% endblock %}
+
+{% block script %}<script src="assets/js/libro.js" defer></script><script src="assets/js/home.js" defer></script>{% endblock %}

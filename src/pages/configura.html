@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% from "copertina.html" import copertina %}
+{% set cop = dati.copertine | selectattr("codice", "equalto", "CP-030") | first %}
+{% block titolo %}Configura la tua tesi: copertina, scritta e stampa | rilegaretesi{% endblock %}
+{% block descrizione %}Scegli la copertina tra {{ dati.copertine|length }} colori, il colore della scritta e il numero di facciate: il prezzo si aggiorna mentre scegli.{% endblock %}
+
+{% block contenuto %}
+<div class="configura">
+  <aside class="configura__anteprima">
+    <div class="configura__fisso">
+      {{ copertina(cop, id="libro-conf", grande=true) }}
+      <div class="conto" aria-live="polite">
+        <dl>
+          <div><dt>Copertina</dt><dd id="conto-copertina">{{ cop.prezzo|euro }}</dd></div>
+          <div id="riga-decoro" hidden><dt>Decoro</dt><dd>{{ dati.decoro.prezzo|euro }}</dd></div>
+          <div><dt>Stampa</dt><dd id="conto-stampa">—</dd></div>
+          <div class="conto__copia"><dt>Una copia</dt><dd id="conto-copia">—</dd></div>
+          <div><dt>Copie</dt><dd id="conto-copie">1</dd></div>
+          <div><dt>Spedizione</dt><dd>{{ dati.spedizione.prezzo|euro }}</dd></div>
+        </dl>
+        <p class="conto__totale"><span>Totale</span> <strong id="conto-totale">—</strong></p>
+      </div>
+    </div>
+  </aside>
+
+  <form class="configura__passi" id="configuratore" novalidate>
+    <h1>Configura la tua tesi</h1>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">1</span> Tipo di rilegatura</legend>
+      <div class="scelte scelte--tipo">
+        {% for t in dati.tipologie %}
+        <label class="scelta{% if not t.attiva %} scelta--spenta{% endif %}">
+          <input type="radio" name="tipologia" value="{{ t.id }}"{% if loop.first %} checked{% endif %}{% if not t.attiva %} disabled{% endif %}>
+          <span class="scelta__nome">{{ t.nome }}</span>
+          <span class="scelta__nota">{% if t.attiva %}da {{ dati.prezzo_min|euro }} a copia{% else %}In arrivo sul nuovo sito{% endif %}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">2</span> Copertina</legend>
+      <div class="filtri">
+        <div class="filtri__gruppo" role="group" aria-label="Finitura">
+          <button type="button" class="filtro" data-filtro="finitura" data-valore="" aria-pressed="true">Tutte</button>
+          {% for f in dati.finiture %}
+          <button type="button" class="filtro" data-filtro="finitura" data-valore="{{ f.nome }}" aria-pressed="false">{{ f.nome }}</button>
+          {% endfor %}
+        </div>
+        <label class="filtri__colore">Colore
+          <select id="filtro-famiglia">
+            <option value="">Tutti i colori</option>
+            {% for fam in dati.famiglie %}<option>{{ fam }}</option>{% endfor %}
+          </select>
+        </label>
+      </div>
+      <div class="griglia" id="griglia" role="radiogroup" aria-label="Copertine">
+        {% for c in dati.copertine if c.disponibile %}
+        <label class="tessera" data-finitura="{{ c.finitura }}" data-famiglia="{{ c.famiglia }}">
+          <input type="radio" name="copertina" value="{{ c.codice }}"{% if c.codice == cop.codice %} checked{% endif %}>
+          <span class="tessera__campione" style="--cop: {{ c.colore }}"><img src="{{ c.foto }}" alt="" loading="lazy" width="150" height="150" onerror="this.remove()"></span>
+          <span class="tessera__nome">{{ c.nome }}</span>
+          <span class="tessera__prezzo">{{ c.prezzo|euro }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <p class="vuoto" id="griglia-vuota" hidden>Nessuna copertina con questi filtri. <button type="button" class="collegamento" id="azzera-filtri">Mostra tutte</button></p>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">3</span> Scritta e decoro</legend>
+      <div class="scelte scelte--foil">
+        {% for t in dati.colori_testo %}
+        <label class="scelta scelta--foil">
+          <input type="radio" name="testo" value="{{ t.nome }}" data-colore="{{ t.colore }}"{% if loop.first %} checked{% endif %}>
+          <span class="foil" style="--foil: {{ t.colore }}"></span>
+          <span class="scelta__nome">{{ t.nome }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <label class="interruttore">
+        <input type="checkbox" name="decoro" id="decoro">
+        <span>Aggiungi la cornice decorativa (+ {{ dati.decoro.prezzo|euro }})</span>
+      </label>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">4</span> Anteprima della scritta</legend>
+      <p class="passo__aiuto">Solo per vedere l'effetto: in copertina stampiamo il frontespizio del tuo PDF.</p>
+      <div class="campi">
+        <label>Università<input type="text" data-anteprima="ateneo" placeholder="Università degli Studi" maxlength="60"></label>
+        <label>Titolo della tesi<input type="text" data-anteprima="titolo" placeholder="Titolo della tesi" maxlength="120"></label>
+        <label>Nome e cognome<input type="text" data-anteprima="nome" placeholder="Nome Cognome" maxlength="60"></label>
+        <label>Anno accademico<input type="text" data-anteprima="anno" placeholder="Anno accademico 2025/2026" maxlength="40"></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">5</span> Stampa</legend>
+      <div class="campi campi--stampa">
+        <label>Facciate del PDF
+          <input type="number" id="facciate" inputmode="numeric" min="1" max="{{ (dati.stampa|last).a }}" placeholder="Es. 120" aria-describedby="facciate-aiuto">
+          <span class="campo__aiuto" id="facciate-aiuto">Il numero di pagine che vedi nel tuo PDF. Oltre {{ (dati.stampa|last).a }} facciate scrivici per un preventivo.</span>
+        </label>
+        <div class="scelte scelte--due" role="radiogroup" aria-label="Tipo di stampa">
+          <label class="scelta"><input type="radio" name="lati" value="fronte" checked><span class="scelta__nome">Solo fronte</span></label>
+          <label class="scelta"><input type="radio" name="lati" value="fronte-retro"><span class="scelta__nome">Fronte e retro</span></label>
+        </div>
+        <label>Copie
+          <span class="contatore">
+            <button type="button" data-copie="-1" aria-label="Una copia in meno">−</button>
+            <input type="number" id="copie" value="1" min="1" max="50" inputmode="numeric">
+            <button type="button" data-copie="1" aria-label="Una copia in più">+</button>
+          </span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">6</span> Carica il PDF e paga</legend>
+      <p class="passo__aiuto" id="riepilogo">Indica il numero di facciate per vedere il totale.</p>
+      <button type="submit" class="bottone bottone--largo" id="ordina">Carica il PDF e paga</button>
+      {% if staging %}<p class="avviso" id="avviso-staging" hidden>In questa versione di prova gli ordini non sono attivi: niente viene caricato né addebitato.</p>{% endif %}
+    </fieldset>
+  </form>
+</div>
+<div class="barra-totale">
+  <p><span>Totale</span> <strong id="barra-totale">—</strong></p>
+  <a class="bottone bottone--piccolo" href="#ordina">Vai all'ordine</a>
+</div>
+{% endblock %}
+
+{% block script %}<script src="assets/js/libro.js" defer></script><script src="assets/js/configura.js" defer></script>{% endblock %}

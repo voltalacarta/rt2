@@ -1,0 +1,55 @@
+name: Pubblica lo staging
+
+on:
+  push:
+    branches: [main]
+    paths: ["src/**", "strumenti/build.py", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install jinja2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Scarica i font (ospitati nel sito, non da Google)
+        run: |
+          mkdir -p /tmp/font && cd /tmp/font && npm init -y >/dev/null
+          npm i @fontsource/libre-caslon-display @fontsource-variable/hanken-grotesk @fontsource-variable/bricolage-grotesque >/dev/null
+          D="$GITHUB_WORKSPACE/src/assets/fonts"; mkdir -p "$D"
+          cp node_modules/@fontsource/libre-caslon-display/files/libre-caslon-display-latin-400-normal.woff2 "$D/caslon.woff2"
+          cp node_modules/@fontsource-variable/hanken-grotesk/files/hanken-grotesk-latin-wght-normal.woff2 "$D/hanken.woff2"
+          B=$(ls node_modules/@fontsource-variable/bricolage-grotesque/files/ | grep -E '^bricolage-grotesque-latin-(wght|standard|full)-normal\.woff2$' | head -1)
+          if [ -z "$B" ]; then ls node_modules/@fontsource-variable/bricolage-grotesque/files/; exit 1; fi
+          cp "node_modules/@fontsource-variable/bricolage-grotesque/files/$B" "$D/bricolage.woff2"
+          ls -la "$D"
+      - run: python strumenti/build.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

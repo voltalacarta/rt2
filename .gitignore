@@ -16,3 +16,7 @@ node_modules/
 # Python
 __pycache__/
 *.pyc
+
+# Sito generato e font scaricati in CI
+dist/
+src/assets/fonts/*.woff2

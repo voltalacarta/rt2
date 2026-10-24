@@ -1,6 +1,7 @@
 ---
 titolo: Sito statico con Astro e catalogo dal Registro VLC
-stato: proposto
+stato: superato
+sostituito-da: "0003"
 creato: 2026-10-24
 aggiornato: 2026-10-24
 tag: [decisioni, tecnologia, astro]
