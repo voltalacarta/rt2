@@ -92,7 +92,6 @@ Le pagine elencate sono quelle con domanda di ricerca reale e poca concorrenza l
 | E7 | Contatti con **associazioni studentesche Unife** e rappresentanti, per convenzioni o volantini nei periodi di laurea | P2 | Link e passaparola locali |
 | E8 | Link da **voltalacarta.it** (home e footer) | P1 | Backlink immediato dal vostro dominio più vecchio |
 
-
 ## G. Gestione e conformità
 
 | # | Miglioria | P |
@@ -105,7 +104,6 @@ Le pagine elencate sono quelle con domanda di ricerca reale e poca concorrenza l
 | G6 | Nessun cookie di profilazione, quindi nessun banner | P1 |
 | G7 | Verifica degli obblighi fiscali con il commercialista (corrispettivi e fattura su richiesta) | P1 |
 | G8 | **Accessibilità** (contrasto, tastiera, etichette): l'EAA esenta le microimprese, ma migliora la SEO e l'usabilità e costa poco se fatta dall'inizio | P2 |
-
 
 ## H. Conformità normativa 2026 (aggiunta del 24/10/2026)
 
@@ -120,7 +118,7 @@ Fonte: [guida-ecommerce](https://github.com/voltalacarta/second-brain/blob/main/
 | H5 | **Recensioni:** spiegare come vengono verificate (solo clienti con ordine reale); nessun filtro delle negative. **Sconti** (codice amico, seconda copia) senza prezzi barrati falsi: vale la regola del prezzo più basso a 30 giorni | P1 | Omnibus → [02-prezzi](https://github.com/voltalacarta/second-brain/blob/main/10-progetti/guida-ecommerce/01-normativa/02-prezzi-promozioni-recensioni.md) |
 | H6 | **Dati del fabbricante** (Volta la carta, indirizzo, email) in ogni scheda prodotto | P1 | GPSR → [05-gpsr](https://github.com/voltalacarta/second-brain/blob/main/10-progetti/guida-ecommerce/01-normativa/05-sicurezza-prodotti-gpsr.md) |
 | H7 | **Pagine legali complete** (identità, prezzi totali, consegna, garanzia legale, reclami) | P1 | → [06-pagine-legali](https://github.com/voltalacarta/second-brain/blob/main/10-progetti/guida-ecommerce/02-sito-web/06-pagine-legali-obbligatorie.md) e [checklist conformità](https://github.com/voltalacarta/second-brain/blob/main/10-progetti/guida-ecommerce/05-checklist/checklist-conformita-legale.md) |
-| H8 | **Email dal dominio** (ordini@rilegaretesi.it) invece di Gmail, con SPF, DKIM e DMARC | P1 | Consegna delle email e protezione dalle imitazioni → [quadro e piano](https://github.com/voltalacarta/second-brain/blob/main/10-progetti/guida-ecommerce/00-profilo-azienda/quadro-e-piano.md), punto 8 |
+| H8 | **Email dal dominio** (`ordini@rilegaretesi.it`) invece di Gmail, con SPF, DKIM e DMARC | P1 | Consegna delle email e protezione dalle imitazioni → [quadro e piano](https://github.com/voltalacarta/second-brain/blob/main/10-progetti/guida-ecommerce/00-profilo-azienda/quadro-e-piano.md), punto 8 |
 
 ## I. Integrazione con il resto di Volta la carta (aggiunta del 24/10/2026)
 

@@ -13,7 +13,7 @@ Proposta per la produzione. Lo staging resta su GitHub Pages (decisione [0001](d
 
 ## Schema
 
-```
+```text
             GitHub (repo privato)
                    │ push
                    ▼
@@ -51,7 +51,7 @@ Proposta per la produzione. Lo staging resta su GitHub Pages (decisione [0001](d
 | Upload | **URL firmato** S3-compatibile verso R2, caricamento diretto dal browser | Nessun limite di dimensione del Worker, nessun costo di banda |
 | Pagamento | **Stripe Checkout** ospitato | Carte, Apple Pay, Google Pay e altri metodi attivabili dalla Dashboard (es. PayPal). Il sito non tocca mai i dati di pagamento |
 | Ordini | Tabelle D1 `ordini`, `righe_ordine`, `eventi` (stati e tracking). **Non** il foglio «Ordini» del Registro | Dati personali in un database con accesso controllato. Export CSV per Konga e commercialista (vedi migliorie I2–I3) |
-| Email | Resend, mittente **ordini@rilegaretesi.it** con SPF, DKIM e DMARC (non Gmail), modelli in HTML semplice | Conferma ordine, file ricevuto, spedito con tracking, pronto per il ritiro, richiesta di recensione |
+| Email | Resend, mittente **`ordini@rilegaretesi.it`** con SPF, DKIM e DMARC (non Gmail), modelli in HTML semplice | Conferma ordine, file ricevuto, spedito con tracking, pronto per il ritiro, richiesta di recensione |
 | Pannello | `/admin` protetto da **Cloudflare Access**: login con email e codice monouso, nessuna password da gestire | Lista ordini, download PDF, cambio stato, inserimento tracking, export CSV |
 | Anti-spam | Turnstile sul modulo contatti e sull'upload | Gratis e senza cookie di profilazione |
 | Statistiche | Cloudflare Web Analytics + Google Search Console | Nessun cookie, quindi **nessun banner cookie** |
@@ -81,7 +81,7 @@ I segreti (chiavi Stripe, Resend, R2) stanno solo nelle variabili cifrate di Clo
 
 ## Repository (struttura indicativa)
 
-```
+```text
 rilegaretesi/
 ├── src/content/       pagine e guide in Markdown
 ├── src/data/          JSON esportati dal Registro VLC + festivi.json
@@ -94,10 +94,7 @@ rilegaretesi/
 └── docs/              come si modifica prezzi, testi, foto
 ```
 
-
 ## Allegato · Valutazione dell'hosting
-
-
 
 ### Cosa deve fare il sito
 
