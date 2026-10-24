@@ -1,0 +1,64 @@
+name: Aggiorna gli indici
+
+# Rigenera le tabelle tra i marcatori <!-- indice:inizio --> / <!-- indice:fine -->
+# e la mappa compatta INDICE.md. Script deterministico: zero token.
+# Poi avvisa il second brain, che aggiorna il grafo subito invece che al giro successivo.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.md"
+      - "strumenti/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: indici
+  cancel-in-progress: false
+
+jobs:
+  indici:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pyyaml
+
+      - name: Rigenera gli indici
+        run: python strumenti/indici.py
+
+      - name: Salva se è cambiato
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Indici già aggiornati."
+            exit 0
+          fi
+          git -c user.name="github-actions[bot]" \
+              -c user.email="41898283+github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "chore(indici): aggiornamento automatico"
+          for tentativo in 1 2 3; do
+            if git pull --rebase -q origin main && git push -q; then exit 0; fi
+            sleep 5
+          done
+          exit 1
+
+      - name: Avvisa il second brain
+        env:
+          # Facoltativo: token con permesso di scrittura SOLO su second-brain (vedi la procedura
+          # "Collegare le repo al grafo"). Senza, il grafo si aggiorna comunque entro 3 ore.
+          KG_AVVISO: ${{ secrets.KG_AVVISO }}
+        if: env.KG_AVVISO != ''
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $KG_AVVISO" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository_owner }}/second-brain/dispatches \
+            -d '{"event_type":"aggiorna-grafo"}' \
+            || echo "Avviso non riuscito: il grafo si aggiornerà al prossimo giro programmato."

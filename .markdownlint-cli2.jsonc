@@ -1,0 +1,12 @@
+{
+  // Regole di formato Markdown, verificate in automatico a ogni push
+  "config": {
+    "default": true,
+    "MD013": false,          // nessun limite di lunghezza della riga
+    "MD033": false,          // HTML inline ammesso
+    "MD041": false,          // il primo blocco può essere il frontmatter
+    "MD024": { "siblings_only": true },
+    "MD060": false           // stile di allineamento delle tabelle libero
+  },
+  "ignores": ["node_modules/**"]
+}

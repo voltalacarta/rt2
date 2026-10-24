@@ -1,0 +1,4 @@
+# Come questa repo entra nel grafo della conoscenza del second brain.
+livello: documenti        # documenti: un nodo per file .md · repo: solo il nodo della repo
+escludi:
+  - "INDICE.md"

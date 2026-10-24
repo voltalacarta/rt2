@@ -1,0 +1,17 @@
+{
+  "name": "rilegaretesi.it (nuovo sito)",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "postCreateCommand": "pip install --quiet --user pyyaml",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "davidanson.vscode-markdownlint",
+        "editorconfig.editorconfig",
+        "yzhang.markdown-all-in-one"
+      ]
+    }
+  }
+}
