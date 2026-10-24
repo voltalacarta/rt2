@@ -15,6 +15,8 @@ Una decisione = un file numerato, creato con `python3 strumenti/nuova-decisione.
 
 | N. | Decisione | Stato | Data |
 | --- | --- | --- | --- |
+| [0001](0001-nuovo-sito-separato-staging-su-github-pages.md) | Nuovo sito separato, staging su GitHub Pages | accettato | 2026-10-24 |
+| [0002](0002-sito-statico-con-astro-e-catalogo-dal-registro-vlc.md) | Sito statico con Astro e catalogo dal Registro VLC | proposto | 2026-10-24 |
 
 <!-- indice:fine -->
 
