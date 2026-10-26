@@ -43,5 +43,6 @@ Il sito in lavorazione è pubblicato su GitHub Pages: <https://voltalacarta.gith
 | Parti comuni (testata, piede, copertina) | `src/templates/` |
 | Catalogo e prezzi | `src/data/catalogo.json`, copia del Registro VLC |
 | Stile e script | `src/assets/` |
+| Lettura dei PDF nel browser | `src/assets/vendor/pdfjs/`: pdf.js 4.10.38 di Mozilla, licenza Apache 2.0 |
 
 Per provarlo in locale: `pip install jinja2`, poi `python3 strumenti/build.py` e apri `dist/index.html`. La pubblicazione su GitHub Pages parte da sola a ogni push su `main`.

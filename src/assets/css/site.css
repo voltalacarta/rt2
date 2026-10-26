@@ -353,3 +353,37 @@ h1, h2, .conto__totale strong, .passi li::before { font-variant-numeric: lining-
   .barra-totale span { color: var(--muted); font-size: .9rem; }
   .barra-totale strong { font-family: var(--display); font-weight: var(--display-weight); font-size: 1.5rem; font-variant-numeric: lining-nums; }
 }
+
+/* Caricamento e controllo del PDF */
+.caricamento {
+  position: relative; display: flex; flex-direction: column; align-items: center; gap: .25rem; text-align: center;
+  padding: 1.6rem 1rem; border: 2px dashed var(--line); border-radius: var(--radius-lg); background: var(--surface);
+  cursor: pointer; margin-bottom: 1rem; clear: both;
+}
+.caricamento input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; }
+.caricamento:hover, .caricamento--sopra { border-color: var(--accent); }
+.caricamento:has(input:focus-visible) { outline: 3px solid var(--accent); outline-offset: 2px; }
+.caricamento__testo strong { color: var(--accent); }
+.caricamento__nota { font-size: .875rem; color: var(--muted); }
+.esito { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.25rem; }
+.esito__frontespizio { flex: none; width: 90px; height: auto; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.18); border-radius: 2px; }
+.esito__file { font-weight: 600; margin-bottom: .4rem; overflow-wrap: anywhere; }
+.esito__controlli { list-style: none; padding: 0; margin: 0; font-size: .95rem; }
+.esito__controlli li { padding-left: 1.4rem; position: relative; margin-bottom: .35rem; }
+.esito__controlli li::before { position: absolute; left: 0; font-weight: 700; }
+.esito--ok::before { content: "✓"; color: #2E7D4F; }
+.esito--info::before { content: "i"; color: var(--muted); font-style: italic; }
+.esito--attenzione::before { content: "!"; color: #A15C00; }
+.esito--errore { color: #B3261E; }
+.esito--errore::before { content: "×"; }
+
+textarea { font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: .6rem .75rem; width: 100%; resize: vertical; }
+.campo-note { display: flex; flex-direction: column; gap: .35rem; font-size: .9rem; font-weight: 600; margin-top: 1.25rem; }
+.campi--stampa { margin-bottom: 1rem; }
+.scelte--consegna { margin-top: 1rem; }
+.data-consegna { margin: 1rem 0 0; padding: .8rem 1rem; background: var(--surface); border-radius: var(--radius); font-size: .95rem; }
+.data-consegna--avviso { background: var(--mark); }
+.conto__data { margin: .6rem 0 0; font-size: .9rem; color: var(--muted); }
+.garanzia { margin: 1rem 0 0; font-size: .95rem; color: var(--muted); }
+#campi-fattura { margin: 1rem 0; }
+input[type="date"] { font: inherit; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: .55rem .75rem; max-width: 14rem; }

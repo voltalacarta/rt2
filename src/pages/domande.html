@@ -1,40 +1,61 @@
 {% extends "base.html" %}
 {% block titolo %}Domande frequenti su stampa e rilegatura della tesi | rilegaretesi{% endblock %}
-{% block descrizione %}Tempi di consegna, pagamenti, frontespizio e consigli di impaginazione per stampare e rilegare la tesi di laurea.{% endblock %}
+{% block descrizione %}Tempi di spedizione e ritiro, file PDF, frontespizio, impaginazione, errori e pagamenti per stampare e rilegare la tesi di laurea.{% endblock %}
 {% block contenuto %}
 <article class="testo">
   <h1>Domande frequenti</h1>
 
-  <h2>Tempi di consegna</h2>
+  <h2>Tempi</h2>
   <ul>
-    <li>Stampa e rilegatura: 24-48 ore lavorative.</li>
-    <li>Spedizione: 24-48 ore lavorative.</li>
-    <li>Se l'ordine arriva dopo le 12, la lavorazione parte dalle 9 del giorno lavorativo successivo.</li>
-    <li>Non consegniamo sabato, domenica e festivi.</li>
-    <li>Per l'estero o per zone difficili da raggiungere scrivici a <a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a>.</li>
+    <li>Gli ordini completi che arrivano <strong>entro le {{ dati.ordini.ora_limite }} di un giorno lavorativo partono in giornata</strong>, senza costi in più. Dopo le {{ dati.ordini.ora_limite }} partono il giorno lavorativo successivo.</li>
+    <li>Il corriere {{ dati.ordini.corriere }} consegna di solito in {{ dati.ordini.consegna_corriere }}. Garantiamo la data di spedizione, non quella di arrivo, che dipende dal corriere.</li>
+    <li>Il corriere non consegna sabato, domenica e festivi.</li>
+    <li>Ti chiediamo il giorno della laurea perché lavoriamo le tesi in quell'ordine.</li>
+    <li>Se la laurea è molto vicina, scegli il ritiro in bottega o chiamaci allo <a href="tel:+390532208932">0532 208932</a>.</li>
   </ul>
-  <p>Quando il pacco parte ricevi un'email con il codice per seguirlo. Lascia un numero di telefono: aiuta il corriere. Se non ti trova, il corriere riprova una seconda volta e poi ti scrive come ritirare il pacco o fissare una nuova consegna.</p>
+  <p>Quando il pacco parte ricevi un'email con il codice per seguirlo. Lascia un numero di telefono: aiuta il corriere. Se il corriere ritarda, ce ne occupiamo noi.</p>
 
-  <h2>Pagamenti</h2>
-  <p>Accettiamo carta di credito e carta di debito. Il prezzo che vedi è quello che paghi, senza costi nascosti.</p>
+  <h2>Ritiro in bottega</h2>
+  <p>Puoi ritirare la tesi gratis da Volta la carta, {{ dati.bottega.indirizzo }}, negli orari {{ dati.bottega.orari }}. In bottega c'è anche il campionario delle copertine da vedere e toccare.</p>
 
-  <h2>Modifiche e annullamenti</h2>
-  <p>Carichi un solo PDF pronto per la stampa, frontespizio compreso. Il file entra subito in lavorazione, quindi controllalo bene prima di inviarlo. Eventuali servizi extra li concordiamo per email, solo se ce li chiedi.</p>
+  <h2>Il file della tesi</h2>
+  <ul>
+    <li>Carichi <strong>un solo PDF</strong>, frontespizio compreso. Il sito conta le facciate e ti avvisa se trova pagine bianche, pagine orizzontali o un formato diverso dall'A4.</li>
+    <li>Hai solo il file di Word? Aprilo e scegli File › Salva con nome › PDF. Con Google Documenti: File › Scarica › Documento PDF.</li>
+    <li>Prima di stampare controlliamo comunque il file in bottega. Se qualcosa non va, ti avvisiamo.</li>
+    <li>Il file entra subito in lavorazione: ricontrollalo prima di caricarlo.</li>
+  </ul>
 
-  <h2>Il frontespizio</h2>
-  <p>È la prima pagina del tuo PDF: titolo della tesi, nome, relatore, anno accademico. La usiamo per la scritta in copertina.</p>
-  <p>Se l'impaginazione non rende bene in copertina, la sistemiamo noi con piccoli aggiustamenti di spaziatura. Interveniamo solo sulla copertina: la pagina interna resta come l'hai inviata. Nelle copertine floreali a volte adattiamo la scritta al decoro, senza che tu debba fare nulla.</p>
-  <p>Per come scrivere il frontespizio fai riferimento al tuo ateneo, che di solito fornisce un fac-simile.</p>
+  <h2>Il frontespizio e la copertina</h2>
+  <p>La scritta in copertina è il frontespizio, cioè la prima pagina del PDF: titolo, nome, relatore, anno accademico. Di solito il modello lo dà il tuo ateneo.</p>
+  <p>Non la riscriviamo: la prendiamo dal tuo file e sistemiamo noi gli allineamenti perché stia bene in copertina. Interveniamo solo sulla copertina; la pagina interna resta come l'hai inviata.</p>
+  <p>Vuoi lo stemma dell'università o un carattere diverso per la scritta? Scrivilo nelle richieste per la copertina quando ordini.</p>
+
+  <h2>Colori</h2>
+  <p>I colori sullo schermo sono abbastanza fedeli, ma dipendono dal monitor. Per vederli dal vivo, il campionario è in bottega. I più scelti sono avorio e bordeaux.</p>
 
   <h2>Consigli per l'impaginazione</h2>
-  <p><strong>Stampa fronte e retro.</strong> Tieni margini laterali identici, tra 2 e 3 cm. In alternativa imposta le pagine simmetriche con 0,5 cm di margine per la rilegatura. Ogni parte (frontespizio, dedica, indice, introduzione, capitoli, conclusioni, bibliografia, ringraziamenti) deve iniziare su una facciata dispari: se serve, aggiungi una pagina bianca prima. Metti il numero di pagina centrato, le dediche subito dopo il frontespizio e i ringraziamenti alla fine.</p>
-  <p><strong>Solo fronte.</strong> Le pagine vanno in sequenza, basta rispettare i margini.</p>
+  <p>Gli errori più comuni riguardano il frontespizio e il fronte e retro.</p>
+  <p><strong>Fronte e retro.</strong> Tieni margini laterali identici, tra 2 e 3 cm. In alternativa imposta le pagine simmetriche con 0,5 cm di margine per la rilegatura. Ogni parte (frontespizio, dedica, indice, introduzione, capitoli, conclusioni, bibliografia, ringraziamenti) deve iniziare su una facciata dispari: se serve, aggiungi una pagina bianca prima. Metti il numero di pagina centrato, le dediche subito dopo il frontespizio e i ringraziamenti alla fine.</p>
+  <p><strong>Solo fronte.</strong> Le pagine vanno in sequenza, senza pagine bianche in mezzo, rispettando i margini.</p>
   <p>Dopo aver esportato il PDF, riaprilo e controllalo pagina per pagina.</p>
 
-  <h2>Carta e materiali</h2>
-  <p>Stampiamo su carta Navigator da 80 g/m². Su richiesta usiamo grammature maggiori o carte speciali. Le rilegature sono fatte a mano con materiali sostenibili, anche completamente plastic free. I decori delle copertine floreali sono originali e protetti da copyright.</p>
+  <h2>Errori, resi e annullamenti</h2>
+  <ul>
+    <li>Controlliamo ogni tesi prima di spedirla o consegnarla. <strong>Se l'errore è nostro</strong>, per esempio un nome sbagliato in copertina o una copertina rovinata, <strong>la rifacciamo gratis</strong>.</li>
+    <li>Se l'errore è nel file inviato, la ristampa si paga; scrivici e troviamo insieme una soluzione.</li>
+    <li>Le tesi sono fatte su misura, quindi non si possono restituire.</li>
+    <li>Per annullare un ordine chiamaci subito: se non l'abbiamo ancora lavorato, lo fermiamo.</li>
+    <li>Se trovi un problema alla consegna, scrivici entro poche ore: con una laurea in vista c'è poco tempo per rimediare.</li>
+  </ul>
+
+  <h2>Pagamenti e fattura</h2>
+  <p>Paghi online con carta. Il prezzo che vedi è quello che paghi. Se ti serve la fattura, per esempio per un'azienda, un ente o un dipartimento, indica i dati quando ordini.</p>
+
+  <h2>Carta</h2>
+  <p>Stampiamo su carta Navigator da 80 g/m². Su richiesta usiamo grammature maggiori o carte speciali. I decori delle copertine floreali sono disegni originali, protetti da copyright.</p>
 
   <h2>Hai altri dubbi?</h2>
-  <p>Scrivici a <a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a> o chiamaci allo <a href="tel:+390532208932">0532 208932</a>.</p>
+  <p>Scrivici a <a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a> o chiamaci allo <a href="tel:+390532208932">0532 208932</a> negli orari {{ dati.bottega.orari }}.</p>
 </article>
 {% endblock %}

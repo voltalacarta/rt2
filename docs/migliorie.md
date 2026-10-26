@@ -2,7 +2,7 @@
 titolo: "Migliorie per il nuovo sito (solo traffico organico)"
 stato: proposto
 creato: 2026-10-24
-aggiornato: 2026-10-24
+aggiornato: 2026-10-26
 tag: [sito, migliorie, seo]
 sintesi: "Elenco prioritizzato: SEO tecnica, contenuti, conversione, fiducia, recensioni, gestione, conformità 2026, integrazione con Registro VLC e Konga."
 ---
@@ -62,7 +62,7 @@ Le pagine elencate sono quelle con domanda di ricerca reale e poca concorrenza l
 | C6 | **Controlli automatici sul PDF** prima del pagamento: formato A4, pagine orizzontali, facciate dispari con fronte/retro, frontespizio presente | P2 | Recupera il servizio «controlliamo il tuo file», oggi perso |
 | C7 | Opzione **«Controllate il mio file prima di stampare»**, gratuita o simbolica, con qualche ora in più | P2 | È il vantaggio di una bottega vera rispetto a una stampa automatica |
 | C8 | **Apple Pay, Google Pay, PayPal** tramite Stripe Checkout | P1 | Più metodi, meno carrelli abbandonati. Oggi accettate solo carte |
-| C9 | **WhatsApp** (link click-to-chat al numero aziendale) e **telefono** visibili | P1 | I concorrenti li hanno. Oggi c'è solo l'email |
+| C9 | ~~WhatsApp~~ e **telefono** visibili. Il titolare ha scelto: niente WhatsApp, meglio l'email (questionario del 25/10/2026) | P1 | Oggi c'è solo l'email |
 | C10 | **Pagina stato ordine** raggiungibile dal link nell'email, senza account | P1 | Meno email «a che punto è la mia tesi?» |
 | C11 | Sconto automatico sulle **copie aggiuntive** (la seconda copia costa meno) | P2 | Alza lo scontrino medio. La lavorazione delle copie in serie costa meno |
 | C12 | **Garanzia esplicita**: «Se c'è un difetto di lavorazione la rifacciamo gratis» | P1 | Fiducia. Va scritta in accordo con la revisione dei Termini |
@@ -149,3 +149,9 @@ Fonte: [guida-ecommerce](https://github.com/voltalacarta/second-brain/blob/main/
 9. G5: revisione dei Termini
 
 **Obblighi già in vigore** (da rispettare dal primo giorno): H1–H3.
+
+## Stato al 26/10/2026, dopo il questionario del titolare
+
+Già nello staging: C1 (facciate dal PDF), C2 (totale sempre visibile), C3 (data di spedizione con ora limite alle 12, festivi e fine settimana), C4 (ritiro gratuito in bottega), C6 in parte (formato A4, pagine orizzontali, pagine bianche, file non PDF), C12 (garanzia sugli errori nostri), C13, D1 (indirizzo, P.IVA e orari nel piè di pagina), H2 (tolti «materiali sostenibili» e «plastic free» finché non sono documentati), I3 in parte (dati per la fattura nel modulo).
+
+Le regole di bottega usate dal sito sono in [Volta la carta, conoscenza dell'attività](https://github.com/voltalacarta/documentazione/tree/main/30-conoscenza/volta-la-carta).

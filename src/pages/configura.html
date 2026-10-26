@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 {% from "copertina.html" import copertina %}
 {% set cop = dati.copertine | selectattr("codice", "equalto", "CP-030") | first %}
-{% block titolo %}Configura la tua tesi: copertina, scritta e stampa | rilegaretesi{% endblock %}
-{% block descrizione %}Scegli la copertina tra {{ dati.copertine|length }} colori, il colore della scritta e il numero di facciate: il prezzo si aggiorna mentre scegli.{% endblock %}
+{% set corriere = dati.consegna | selectattr("id", "equalto", "corriere") | first %}
+{% block titolo %}Configura la tua tesi: copertina, stampa e consegna | rilegaretesi{% endblock %}
+{% block descrizione %}Carica il PDF: contiamo le facciate e controlliamo il file. Scegli la copertina tra {{ dati.copertine|length }} colori e vedi subito prezzo e data di spedizione.{% endblock %}
 
 {% block contenuto %}
 <div class="configura">
@@ -16,9 +17,10 @@
           <div><dt>Stampa</dt><dd id="conto-stampa">—</dd></div>
           <div class="conto__copia"><dt>Una copia</dt><dd id="conto-copia">—</dd></div>
           <div><dt>Copie</dt><dd id="conto-copie">1</dd></div>
-          <div><dt>Spedizione</dt><dd>{{ dati.spedizione.prezzo|euro }}</dd></div>
+          <div><dt id="conto-consegna-nome">Spedizione</dt><dd id="conto-consegna">{{ corriere.prezzo|euro }}</dd></div>
         </dl>
         <p class="conto__totale"><span>Totale</span> <strong id="conto-totale">—</strong></p>
+        <p class="conto__data" id="conto-data"></p>
       </div>
     </div>
   </aside>
@@ -40,10 +42,35 @@
     </fieldset>
 
     <fieldset class="passo">
-      <legend><span class="passo__n">2</span> Copertina</legend>
+      <legend><span class="passo__n">2</span> Il PDF della tesi</legend>
+      <p class="passo__aiuto">Scegli il file: contiamo le facciate e controlliamo che sia pronto per la stampa. Il file resta sul tuo dispositivo finché non confermi l'ordine.</p>
+      <label class="caricamento" id="caricamento">
+        <input type="file" id="pdf" accept="application/pdf,.pdf">
+        <span class="caricamento__testo"><strong>Scegli il PDF</strong> o trascinalo qui</span>
+        <span class="caricamento__nota">Un solo file, frontespizio compreso</span>
+      </label>
+      <div class="esito" id="esito" hidden aria-live="polite">
+        <canvas class="esito__frontespizio" id="frontespizio" width="120" height="170" aria-label="Il frontespizio del tuo PDF"></canvas>
+        <div>
+          <p class="esito__file" id="esito-file"></p>
+          <ul class="esito__controlli" id="esito-controlli"></ul>
+        </div>
+      </div>
+      <div class="campi campi--stampa">
+        <label>Facciate del PDF
+          <input type="number" id="facciate" inputmode="numeric" min="1" max="{{ (dati.stampa|last).a }}" placeholder="Es. 120" aria-describedby="facciate-aiuto">
+          <span class="campo__aiuto" id="facciate-aiuto">Si compila da sola quando scegli il PDF. Non hai ancora la versione finale? Scrivi il numero a mano. Oltre {{ (dati.stampa|last).a }} facciate scrivici per un preventivo.</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">3</span> Copertina</legend>
+      <p class="passo__aiuto">Avorio e bordeaux sono i più scelti. Molti abbinano il colore al vestito della laurea. Per vedere i colori dal vivo, il campionario è in bottega.</p>
       <div class="filtri">
         <div class="filtri__gruppo" role="group" aria-label="Finitura">
           <button type="button" class="filtro" data-filtro="finitura" data-valore="" aria-pressed="true">Tutte</button>
+          <button type="button" class="filtro" data-filtro="finitura" data-valore="__scelti" aria-pressed="false">I più scelti</button>
           {% for f in dati.finiture %}
           <button type="button" class="filtro" data-filtro="finitura" data-valore="{{ f.nome }}" aria-pressed="false">{{ f.nome }}</button>
           {% endfor %}
@@ -57,7 +84,7 @@
       </div>
       <div class="griglia" id="griglia" role="radiogroup" aria-label="Copertine">
         {% for c in dati.copertine if c.disponibile %}
-        <label class="tessera" data-finitura="{{ c.finitura }}" data-famiglia="{{ c.famiglia }}">
+        <label class="tessera" data-finitura="{{ c.finitura }}" data-famiglia="{{ c.famiglia }}"{% if c.piu_scelto %} data-scelto{% endif %}>
           <input type="radio" name="copertina" value="{{ c.codice }}"{% if c.codice == cop.codice %} checked{% endif %}>
           <span class="tessera__campione" style="--cop: {{ c.colore }}"><img src="{{ c.foto }}" alt="" loading="lazy" width="150" height="150" onerror="this.remove()"></span>
           <span class="tessera__nome">{{ c.nome }}</span>
@@ -69,7 +96,7 @@
     </fieldset>
 
     <fieldset class="passo">
-      <legend><span class="passo__n">3</span> Scritta e decoro</legend>
+      <legend><span class="passo__n">4</span> Scritta e decoro</legend>
       <div class="scelte scelte--foil">
         {% for t in dati.colori_testo %}
         <label class="scelta scelta--foil">
@@ -83,11 +110,14 @@
         <input type="checkbox" name="decoro" id="decoro">
         <span>Aggiungi la cornice decorativa (+ {{ dati.decoro.prezzo|euro }})</span>
       </label>
+      <label class="campo-note">Richieste per la copertina <span class="campo__aiuto">facoltativo</span>
+        <textarea id="note" rows="2" maxlength="500" placeholder="Per esempio: lo stemma dell'università, un carattere diverso per la scritta"></textarea>
+      </label>
     </fieldset>
 
     <fieldset class="passo">
-      <legend><span class="passo__n">4</span> Anteprima della scritta</legend>
-      <p class="passo__aiuto">Solo per vedere l'effetto: in copertina stampiamo il frontespizio del tuo PDF.</p>
+      <legend><span class="passo__n">5</span> Anteprima della scritta</legend>
+      <p class="passo__aiuto">In copertina stampiamo il frontespizio del tuo PDF, sistemando noi gli allineamenti. Qui puoi vedere l'effetto.</p>
       <div class="campi">
         <label>Università<input type="text" data-anteprima="ateneo" placeholder="Università degli Studi" maxlength="60"></label>
         <label>Titolo della tesi<input type="text" data-anteprima="titolo" placeholder="Titolo della tesi" maxlength="120"></label>
@@ -97,12 +127,9 @@
     </fieldset>
 
     <fieldset class="passo">
-      <legend><span class="passo__n">5</span> Stampa</legend>
+      <legend><span class="passo__n">6</span> Stampa</legend>
+      <p class="passo__aiuto">A colori o in bianco e nero, il prezzo è lo stesso.</p>
       <div class="campi campi--stampa">
-        <label>Facciate del PDF
-          <input type="number" id="facciate" inputmode="numeric" min="1" max="{{ (dati.stampa|last).a }}" placeholder="Es. 120" aria-describedby="facciate-aiuto">
-          <span class="campo__aiuto" id="facciate-aiuto">Il numero di pagine che vedi nel tuo PDF. Oltre {{ (dati.stampa|last).a }} facciate scrivici per un preventivo.</span>
-        </label>
         <div class="scelte scelte--due" role="radiogroup" aria-label="Tipo di stampa">
           <label class="scelta"><input type="radio" name="lati" value="fronte" checked><span class="scelta__nome">Solo fronte</span></label>
           <label class="scelta"><input type="radio" name="lati" value="fronte-retro"><span class="scelta__nome">Fronte e retro</span></label>
@@ -118,9 +145,40 @@
     </fieldset>
 
     <fieldset class="passo">
-      <legend><span class="passo__n">6</span> Carica il PDF e paga</legend>
+      <legend><span class="passo__n">7</span> Consegna</legend>
+      <div class="campi campi--stampa">
+        <label>Giorno della laurea
+          <input type="date" id="laurea" aria-describedby="laurea-aiuto">
+          <span class="campo__aiuto" id="laurea-aiuto">Lavoriamo le tesi in ordine di data di laurea.</span>
+        </label>
+      </div>
+      <div class="scelte scelte--due scelte--consegna" role="radiogroup" aria-label="Consegna">
+        {% for c in dati.consegna %}
+        <label class="scelta">
+          <input type="radio" name="consegna" value="{{ c.id }}" data-prezzo="{{ c.prezzo }}" data-nome="{{ c.nome }}"{% if loop.first %} checked{% endif %}>
+          <span class="scelta__nome">{{ c.nome }}, {% if c.prezzo %}{{ c.prezzo|euro }}{% else %}gratis{% endif %}</span>
+          <span class="scelta__nota">{{ c.nota }}</span>
+        </label>
+        {% endfor %}
+      </div>
+      <p class="data-consegna" id="data-consegna" aria-live="polite"></p>
+    </fieldset>
+
+    <fieldset class="passo">
+      <legend><span class="passo__n">8</span> Fattura e pagamento</legend>
+      <label class="interruttore">
+        <input type="checkbox" id="vuole-fattura">
+        <span>Mi serve la fattura (azienda, ente o professionista)</span>
+      </label>
+      <div class="campi" id="campi-fattura" hidden>
+        <label>Ragione sociale o nome<input type="text" id="f-nome" autocomplete="organization"></label>
+        <label>Partita IVA o codice fiscale<input type="text" id="f-piva" inputmode="text" maxlength="16"></label>
+        <label>Codice destinatario o PEC<input type="text" id="f-sdi" maxlength="80"></label>
+        <label>Indirizzo<input type="text" id="f-indirizzo" autocomplete="street-address"></label>
+      </div>
       <p class="passo__aiuto" id="riepilogo">Indica il numero di facciate per vedere il totale.</p>
-      <button type="submit" class="bottone bottone--largo" id="ordina">Carica il PDF e paga</button>
+      <button type="submit" class="bottone bottone--largo" id="ordina">Paga e invia il PDF</button>
+      <p class="garanzia">Controlliamo ogni tesi prima di spedirla. Se l'errore è nostro, la rifacciamo gratis.</p>
       {% if staging %}<p class="avviso" id="avviso-staging" hidden>In questa versione di prova gli ordini non sono attivi: niente viene caricato né addebitato.</p>{% endif %}
     </fieldset>
   </form>
@@ -131,4 +189,9 @@
 </div>
 {% endblock %}
 
-{% block script %}<script src="assets/js/libro.js" defer></script><script src="assets/js/configura.js" defer></script>{% endblock %}
+{% block script %}
+<script src="assets/js/libro.js" defer></script>
+<script src="assets/js/date.js" defer></script>
+<script src="assets/js/configura.js" defer></script>
+<script type="module" src="assets/js/pdf-controllo.js"></script>
+{% endblock %}

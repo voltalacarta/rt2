@@ -50,10 +50,10 @@
   <div class="piede__in">
     <div>
       <p class="piede__marchio">rilegaretesi</p>
-      <p>Un marchio di Volta la carta, editoria e legatoria.<br>Via Voltapaletto 25, Ferrara</p>
+      <p>Un marchio di {{ dati.bottega.ragione_sociale }}, editoria e legatoria.<br>{{ dati.bottega.indirizzo }}<br>P.IVA {{ dati.bottega.piva }}</p>
     </div>
     <div>
-      <p><a href="tel:+390532208932">0532 208932</a><br><a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a></p>
+      <p><a href="tel:+390532208932">0532 208932</a><br><a href="mailto:info@rilegaretesi.it">info@rilegaretesi.it</a><br>Orari della bottega: {{ dati.bottega.orari }}</p>
     </div>
     <nav aria-label="Informazioni">
       <a href="spedizioni.html">Spedizioni</a>

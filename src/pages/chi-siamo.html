@@ -1,21 +1,25 @@
 {% extends "base.html" %}
-{% block titolo %}Chi siamo: Volta la carta, legatoria a Ferrara | rilegaretesi{% endblock %}
-{% block descrizione %}rilegaretesi è il servizio di rilegatura tesi di Volta la carta, casa editrice e legatoria in via Voltapaletto a Ferrara.{% endblock %}
+{% block titolo %}Chi siamo: Volta la carta, legatoria a Ferrara dal {{ dati.bottega.dal }} | rilegaretesi{% endblock %}
+{% block descrizione %}rilegaretesi è il servizio online di Volta la carta, legatoria e casa editrice in via Voltapaletto a Ferrara, che rilega tesi a mano dal {{ dati.bottega.dal }}.{% endblock %}
 {% block contenuto %}
 <article class="testo">
   <h1>Chi siamo</h1>
-  <p class="apertura__sotto">rilegaretesi è un marchio di Volta la carta, casa editrice e legatoria in via Voltapaletto 25, nel centro di Ferrara.</p>
-  <p>Lavoriamo la carta da oltre 25 anni. Pubblichiamo libri, soprattutto di educazione e pedagogia, e rileghiamo a mano, anche per committenti importanti: tra i nostri lavori ci sono rilegature per Papa Francesco e per il Presidente della Repubblica Sergio Mattarella.</p>
-  <p>Con rilegaretesi portiamo la stessa cura alla tesi di laurea: la stampiamo, la rileghiamo in bottega e la spediamo in tutta Italia.</p>
+  <p class="apertura__sotto">rilegaretesi è il servizio online di Volta la carta, bottega in {{ dati.bottega.indirizzo }}.</p>
+  <p>Volta la carta nasce nel {{ dati.bottega.dal }} come copisteria. Qui abbiamo imparato a rilegare a mano tesi di laurea e album fotografici, e per anni abbiamo prodotto anche segnalibri, cartoline e stampe per i bookshop dei musei.</p>
+  <p>Dalle dispense preparate per i professori siamo passati a pubblicarne i libri: oggi siamo anche casa editrice, con titoli adottati nei corsi universitari. In negozio trovi i nostri libri e i ricordi di Ferrara che produciamo noi.</p>
+  <p>Tra i lavori di cui andiamo più fieri ci sono un messale per Papa Francesco e un volume che un ente ha donato al Presidente della Repubblica Sergio Mattarella.</p>
+
   <h2>Come lavoriamo</h2>
   <ul>
-    <li>Ogni copia è rilegata a mano.</li>
-    <li>Stampiamo su carta Navigator da 80 g/m², o su carte speciali se le chiedi.</li>
-    <li>Usiamo materiali sostenibili, anche completamente plastic free.</li>
-    <li>I decori floreali sono disegni nostri, protetti da copyright.</li>
+    <li>Le copertine delle tesi sono fatte a mano, in bottega.</li>
+    <li>La scritta in oro, oro rosa, argento o bronzo è stampata a caldo.</li>
+    <li>Controlliamo il file prima di stampare e ogni tesi prima di consegnarla.</li>
+    <li>Lavoriamo in ordine di data di laurea, per arrivare in tempo.</li>
+    <li>Se l'errore è nostro, rifacciamo la tesi gratis.</li>
   </ul>
+
   <h2>Vieni a trovarci</h2>
-  <p>Volta la carta, via Voltapaletto 25, Ferrara. Telefono <a href="tel:+390532208932">0532 208932</a>.</p>
+  <p>Volta la carta, {{ dati.bottega.indirizzo }}. Orari: {{ dati.bottega.orari }}. Telefono <a href="tel:+390532208932">{{ dati.bottega.telefono }}</a>.</p>
   <p><a class="collegamento" href="https://voltalacarta.it">Il sito di Volta la carta</a></p>
 </article>
 {% endblock %}
